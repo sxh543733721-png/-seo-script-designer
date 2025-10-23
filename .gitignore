@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Logs
+*.log
+npm-debug.log*
+/tmp/
+
+# Environment variables
+.env
+.env.local
+
+# Vercel
+.vercel
+
+# macOS
+.DS_Store
+
+# Backup files
+*.backup
+*.bak
+
+# IDE
+.vscode/
+.idea/
+

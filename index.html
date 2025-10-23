@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO视频脚本设计师 1.0</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Normal.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <!-- 背景视频 -->
+                <video class="sidebar-video" autoplay muted loop playsinline>
+                    <source src="bg.mp4" type="video/mp4">
+                </video>
+                <!-- Logo 覆盖在视频上 -->
+                <div class="logo">
+                    <h1>SEO视频脚本设计师</h1>
+                    <p>SEO Video Script Designer 1.0</p>
+                </div>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-step" data-step="1">
+                    <div class="step-indicator">1</div>
+                    <div class="step-label">主题 / Topic</div>
+                </div>
+                <div class="progress-step" data-step="2">
+                    <div class="step-indicator">2</div>
+                    <div class="step-label">时长 / Duration</div>
+                </div>
+                <div class="progress-step" data-step="3">
+                    <div class="step-indicator">3</div>
+                    <div class="step-label">平台 / Platform</div>
+                </div>
+                <div class="progress-step" data-step="4">
+                    <div class="step-indicator">4</div>
+                    <div class="step-label">特殊要求 / Requirements</div>
+                </div>
+                <div class="progress-step" data-step="5">
+                    <div class="step-indicator">5</div>
+                    <div class="step-label">语言 / Language</div>
+                </div>
+            </div>
+            
+            <div class="history-container">
+                <div class="history-header">
+                    <h3>历史记录 / History</h3>
+                    <button id="clearHistory" class="clear-btn">清空 / Clear</button>
+                </div>
+                <div id="historyList" class="history-list">
+                    <p class="empty-history">暂无历史记录</p>
+                </div>
+            </div>
+            
+            <div class="api-config">
+                <label>API Key</label>
+                <input type="text" id="apiKey" value="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" placeholder="sk-or-v1-...">
+            </div>
+        </aside>
+
+        <!-- 对话区域 -->
+        <main class="chat-container">
+            <div class="chat-messages" id="chatMessages">
+                <!-- 欢迎消息 -->
+                <div class="message bot-message">
+                    <div class="message-content">
+                        <p>你好！我是 SEO 视频脚本设计师 👋</p>
+                        <p>Hello! I'm your SEO Video Script Designer</p>
+                        <p class="message-hint">我会通过几个简单的问题，帮你生成专业的视频配音脚本</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 输入区域 -->
+            <div class="chat-input-area" id="chatInputArea">
+                <!-- 动态生成的输入内容 -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast 提示 -->
+    <div id="toast" class="toast"></div>
+
+    <!-- 结果模态框 -->
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>生成结果 / Generated Results</h2>
+                <button class="modal-close" id="closeModal">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="result-section">
+                    <div class="result-header">
+                        <h3>中文脚本 / Chinese Script</h3>
+                        <button class="copy-btn" data-target="cnScript">复制 / Copy</button>
+                    </div>
+                    <textarea id="cnScript" class="result-text" readonly></textarea>
+                </div>
+
+                <div class="result-section" id="enSection" style="display: none;">
+                    <div class="result-header">
+                        <h3>英文脚本 / English Script</h3>
+                        <button class="copy-btn" data-target="enScript">复制 / Copy</button>
+                    </div>
+                    <textarea id="enScript" class="result-text" readonly></textarea>
+                </div>
+
+                <div class="result-section" id="seoSection" style="display: none;">
+                    <div class="result-header">
+                        <h3>SEO 优化包 / SEO Package</h3>
+                        <button class="copy-btn" data-target="seoContent">复制全部 / Copy All</button>
+                    </div>
+                    <div id="seoContent" class="seo-content"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="regenerateBtn">重新生成 / Regenerate</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
