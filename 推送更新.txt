@@ -1,0 +1,14 @@
+✅ 配置已修复！
+
+现在请：
+
+1. 打开 GitHub Desktop
+2. 选择 -seo-script-designer 仓库
+3. 你会看到顶部有个按钮：Push origin
+4. 点击 "Push origin" 按钮
+5. 等待推送完成（几秒钟）
+6. Vercel 会自动检测更新并重新部署（2分钟）
+7. 等待后刷新网址：https://seo-script-designer.vercel.app
+
+完成后工具就能正常使用了！
+
